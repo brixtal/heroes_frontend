@@ -4,6 +4,7 @@ import { FormsModule } from '@angular/forms';
 import { HttpClientModule } from '@angular/common/http';
 import {PowerService} from "./Power/power.service";
 import {UniverseService} from "./Universe/universe.service";
+import {HeroesService} from "./Heroes/heroes.service";
 
 
 import { AppComponent } from './app.component';
@@ -24,7 +25,7 @@ import { UniverseComponent } from './universe/universe.component';
     FormsModule,
     HttpClientModule
   ],
-  providers: [PowerService, UniverseService ],
+  providers: [PowerService, UniverseService, HeroesService ],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

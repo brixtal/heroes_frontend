@@ -31,7 +31,6 @@ export class PowerComponent implements OnInit {
   }
 
   ngOnInit(): void {
-    // Make the HTTP request:
     this.power = new Power();
     this.getPowers();
   }
