@@ -5,7 +5,6 @@
 
 <label for="power" id="label_name">Super-power</label>
 <input type="text" [(ngModel)]="newHero.power" placeholder="Power" id="power" />
-
-<input type="radio" id="opcao_1" name="universe"/><label for="opcao_1">EY Comics</label>
-<input type="radio" id="opcao_2" name="universe"/><label for="opcao_2">Trainee Comics</label>
-<input type="radio" id="opcao_3" name="universe"/><label for="opcao_3">Outros</label>
+<div *ngFor="let universe of universes">
+  <input type="radio"  name="universe" id="universe_{{universe.id}}"/><label for="universe_{{universe.id}}">{{universe.description}}</label>
+</div>
