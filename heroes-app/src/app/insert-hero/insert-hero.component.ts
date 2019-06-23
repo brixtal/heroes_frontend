@@ -2,8 +2,8 @@ import { Component, OnInit } from '@angular/core';
 import {UniverseService} from "../Universe/universe.service";
 import {PowerService} from "../Power/power.service";
 import { FormControl } from '@angular/forms';
-import { Hero } from '../hero';
-import { Power } from '../power';
+import { Hero } from '../Hero';
+import { Power } from '../Power';
 import { Universe } from '../Universe';
 
 @Component({
@@ -19,7 +19,7 @@ export class InsertHeroComponent implements OnInit {
   selectedPower: String;
   newHeroPowers: String[];
   newHeroUniverse: Universe;
-  tempPower: Power;
+  public tempPower: Power;
   fixedListPowers: Object;
 
 
@@ -58,7 +58,7 @@ export class InsertHeroComponent implements OnInit {
     let findPower = false;
     console.log
     listStringPowers.forEach(e => {
-
+      findPower = false;
       for( var i = 0; i < this.fixedListPowers.length; i++){ 
         console.log(this.fixedListPowers[i].description," ",e)
         if ( this.fixedListPowers[i].description == e) {
@@ -70,9 +70,16 @@ export class InsertHeroComponent implements OnInit {
           break;
         }
      }
-     if(!findPower == false) {
-       //this.tempPower.description = e;
-     // let newPower = this.powerService.insertNewPower(this.tempPower);
+     if(findPower == false) {
+       console.log("adicionando...");
+       this.tempPower.description = e;
+       this.powerService.insertNewPower(this.tempPower).subscribe(
+        data => {
+          listPowers.push({
+            "id": data.id
+          });
+        }
+    );;
      }
       
     });
@@ -112,6 +119,7 @@ onSelectedPower(selectedPower) {
   queryField: FormControl = new FormControl();
 
   ngOnInit() {
+    this.tempPower = new Power();
     this.getUniverses();
     this.getPowers();
   }

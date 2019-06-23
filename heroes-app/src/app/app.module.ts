@@ -7,6 +7,7 @@ import {UniverseService} from "./Universe/universe.service";
 import {HeroesService} from "./Heroes/heroes.service";
 import { ReactiveFormsModule } from '@angular/forms';
 
+ 
 
 import { AppComponent } from './app.component';
 import { HeroesComponent } from './heroes/heroes.component';
@@ -31,7 +32,7 @@ import { InsertHeroComponent } from './insert-hero/insert-hero.component';
     HttpClientModule,
     ReactiveFormsModule
   ],
-  providers: [PowerService, UniverseService, HeroesService ],
+  providers: [PowerService, UniverseService, HeroesService,  ],
   bootstrap: [AppComponent]
 })
 export class AppModule { }
