@@ -15,7 +15,7 @@
           <span>{{getPower(hero.powerList)}} </span>
         </td>
         <td>{{hero.universe.description}}</td>
-        <td>{{hero.createdAt}}</td>
+        <td>{{formatTime(hero.createdAt)}}</td>
         <td><img src="../assets/resources/images/x-button.png" id="delete_hero_{{hero.id}}" (click)="deleteHero(hero)" class="delete_hero" height="14px"/></td>
       </tr>
 

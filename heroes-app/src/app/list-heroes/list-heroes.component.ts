@@ -3,6 +3,8 @@ import { Hero } from '../hero';
 import { Power } from '../power';
 import {HeroesService} from "../Heroes/heroes.service";
 
+import * as moment from 'moment';
+
 
 @Component({
   selector: 'app-list-heroes',
@@ -34,6 +36,15 @@ export class ListHeroesComponent implements OnInit {
       
     });
     return powerString;
+  }
+
+  formatTime(time: string): String{
+    let timeDate = moment(time, "DD/MM/YYYY HH:mm");
+    let timeString = timeDate.fromNow();
+    if(timeString.indexOf("years") != -1){
+      timeString = timeDate.format("MM/DD/YYYY");
+    }
+    return timeString;
   }
 
   deleteHero(hero:Hero) {
