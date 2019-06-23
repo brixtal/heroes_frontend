@@ -1,0 +1,30 @@
+
+::ng-deep body{
+    background-color: #ecf2f7;
+    color: #515151;
+  }
+
+  #logo {
+    width: 70px;
+    height: 70px;
+    padding-left: 25px;
+}
+
+#menu {
+    position: absolute;
+    top: 0px;
+    left: 0px;
+    background-color: #012340;
+    width: 100px;
+    margin:0px;
+    width: 100%;
+}
+
+#menu_elements{
+    display: flex;
+    align-items: center;
+}
+
+.menu_action{
+    display: inline;
+}

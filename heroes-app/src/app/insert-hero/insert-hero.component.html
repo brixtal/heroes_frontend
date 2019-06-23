@@ -1,22 +1,36 @@
+<div id="menu">
+  <div id="menu_elements">
+    <img  id="logo"  src="../assets/resources/images/logo.png"/>
+    <ul>
+      <li class="menu_action" id="left">List Heroes</li>
+      <li class="menu_action" id="right">Insert Heroes</li>
+    </ul>
+  </div>
+</div>
+
+<div id="container">
 <h2>Insert a new hero</h2>
 
-<label for="name" id="label_name">Hero name</label>
-<input type="text" [(ngModel)]="newHero.name" placeholder="Name" id="nameHero" name="fieldName"  ngDefaultControl/>
+<div>
+  <label for="name" id="label_name">Hero name:</label>
+  <input type="text" [(ngModel)]="newHero.name" placeholder="Name" id="nameHero" name="fieldName"  ngDefaultControl/>
+</div>
 
-<label for="power" id="label_name">Super-power</label>
+<label for="power" id="label_name">Super-power: </label>
 
 
 
-<input list="powers" name="powers" [(ngModel)]="selectedPower" (change)="onSelectedPower(selectedPower)">
+<input type="text" list="powers" name="powers" [(ngModel)]="selectedPower" (change)="onSelectedPower(selectedPower)">
 
 <datalist id="powers" >
   <option *ngFor="let power of powers" value="{{power.description}}" >
 </datalist>
 {{teste}}
 <div *ngFor="let universe of universes">
-  <img src ="" width="50px" height="50px" (click)="onSelectedUniversed(universe)">
+  <img src ="../assets/resources/images/universe_{{universe.id}}.png" height="100px" (click)="onSelectedUniversed(universe)" >
 </div>
 
 <p *ngFor="let x of newHeroPowers">{{x}}</p>
 
-<input type="button" value="Submit" (click)="submit()"/>
+<input type="button" id="submit" value="Submit"  (click)="submit()"/>
+</div>

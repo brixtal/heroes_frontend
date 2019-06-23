@@ -32,7 +32,7 @@ import { InsertHeroComponent } from './insert-hero/insert-hero.component';
     HttpClientModule,
     ReactiveFormsModule
   ],
-  providers: [PowerService, UniverseService, HeroesService,  ],
+  providers: [PowerService, UniverseService, HeroesService ],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

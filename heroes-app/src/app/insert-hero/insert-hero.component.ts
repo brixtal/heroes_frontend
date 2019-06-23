@@ -21,7 +21,7 @@ export class InsertHeroComponent implements OnInit {
   newHeroPowers: String[];
   newHeroUniverse: Universe;
   public tempPower: Power;
-  fixedListPowers: Object;
+  fixedListPowers: Object[];
   listPowers: Power[];
 
 
@@ -88,7 +88,7 @@ getPowers() {
   this.powerService.getAllPowers().subscribe(
     data => {
       this.powers = data;
-      this.fixedListPowers = data.slice();
+      this.fixedListPowers = (<Object[]> data).slice();
     }
 );
 }
