@@ -27,4 +27,25 @@
 
 .menu_action{
     display: inline;
+    color: white;
+    font-family: Roboto,RobotoDraft,Helvetica,Arial,sans-serif;
+    font-weight: bold;
+    font-size: 1em;
+    padding-right: 10px;
+    cursor: pointer;
+}
+
+.menu_action:hover{
+    text-decoration: underline;
+}
+
+.menu_action#left {
+    border-right: solid 1px white;
+    margin-right: 10px;
+    height: 70px;
+}
+
+a {
+    text-decoration: none;
+    color: #FFFFFF;
 }

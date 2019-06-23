@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { Router, ActivatedRoute, ParamMap } from '@angular/router';
 import {UniverseService} from "../Universe/universe.service";
 import {HeroesService} from "../Heroes/heroes.service";
 import {PowerService} from "../Power/power.service";
@@ -27,7 +28,7 @@ export class InsertHeroComponent implements OnInit {
 
 
   constructor(private universeService: UniverseService, private powerService : PowerService, 
-        private heroesService: HeroesService) { 
+        private heroesService: HeroesService,  private route: ActivatedRoute, private router: Router) { 
     this.selectedId = 0;
     this.selectedPower = "";
     this.newHeroPowers = [];
@@ -64,7 +65,8 @@ export class InsertHeroComponent implements OnInit {
 
     this.heroesService.insertNewHero(this.newHero).subscribe(
        data => {
-         console.log(data);
+        alert("Hero inserted successfully!");
+        this.router.navigate(['/list']);
        }
     )
   }
