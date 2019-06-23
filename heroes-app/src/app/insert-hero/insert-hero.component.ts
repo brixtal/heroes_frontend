@@ -50,13 +50,22 @@ export class InsertHeroComponent implements OnInit {
     this.newHero.created_at = new Date();
     this.newHero.active = true;
 
-    console.log(this.newHero);
+    if(this.newHero.powerList.length == 0){
+      alert("Select at least one power!");
+      return;
+    } if (this.newHero.name == null || this.newHero.name.trim().length == 0) {
+      alert("Insert a name to hero!");
+      return;
+    } if (this.newHero.universe == null){
+      alert("Select a universe!");
+      return;
+    }
 
-    // this.heroesService.insertNewHero(this.newHero).subscribe(
-    //   data => {
-    //     console.log(data);
-    //   }
-    // )
+    this.heroesService.insertNewHero(this.newHero).subscribe(
+       data => {
+         console.log(data);
+       }
+    )
   }
 
   findIdPowers(listStringPowers: String[])  {
