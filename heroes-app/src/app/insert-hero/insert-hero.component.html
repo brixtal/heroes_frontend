@@ -1,0 +1,33 @@
+<div id="container">
+<h2>Insert a new hero</h2>
+
+<div class="inputHero">
+  <label for="name" id="label_name">Hero name:</label>
+  <input type="text" [(ngModel)]="newHero.name" placeholder="Insert hero name" id="nameHero" name="fieldName"  ngDefaultControl/>
+</div>
+
+
+<div class="inputHero">
+  <label for="power" id="label_name">Super-power: </label>
+  <input type="text" list="powers" name="powers" placeholder="Select a power or type a new one" [(ngModel)]="selectedPower" (change)="onSelectedPower(selectedPower)">
+<datalist id="powers" >
+  <option *ngFor="let power of powers" value="{{power.description}}" >
+</datalist>
+<ul id="selectedPowers">
+  <li *ngFor="let newHeroPower of newHeroPowers">
+    {{newHeroPower}}
+  </li>
+</ul>
+</div>
+
+<label id="label_universe">Universe:</label>
+<div class="universes-div">
+  
+  <div class="universe-img" *ngFor="let universe of universes" >
+    <img src ="../assets/resources/images/universe_{{universe.id}}.png" height="100px"  [ngClass]="{'selected': universe.id == selectedId}" (click)="onSelectedUniversed(universe)" >
+  </div>
+</div>
+
+
+<input type="button" id="submit" value="SUBMIT"  (click)="submit()"/>
+</div>
