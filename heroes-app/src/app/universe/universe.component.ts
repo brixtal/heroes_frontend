@@ -10,18 +10,22 @@ export class UniverseComponent implements OnInit {
 
   universes: Object;
 
-  constructor(private universeService: UniverseService) { }
+  constructor(private universeService: UniverseService) { 
+
+  }
 
   getUniverses() {
     this.universeService.getAllUniverses().subscribe(
       data => {
         this.universes = data;
+        console.log(data);
       }
   );
 }
 
   ngOnInit():void {
     this.getUniverses();
+    this.getPowers();
   }
     
 }

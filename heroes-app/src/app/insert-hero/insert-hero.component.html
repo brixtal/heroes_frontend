@@ -1,10 +1,20 @@
 <h2>Insert a new hero</h2>
 
 <label for="name" id="label_name">Hero name</label>
-<input type="text" [(ngModel)]="newHero.name" placeholder="Name" id="name" />
+<input type="text" [(ngModel)]="newHero.name" placeholder="Name" id="nameHero" name="fieldName"  ngDefaultControl/>
 
 <label for="power" id="label_name">Super-power</label>
-<input type="text" [(ngModel)]="newHero.power" placeholder="Power" id="power" />
+
+
+
+<input list="powers" name="powers" [(ngModel)]="selectedPower" (change)="onSelectedPower(selectedPower)">
+
+<datalist id="powers" >
+  <option *ngFor="let power of powers" value="{{power.description}}" >
+</datalist>
+{{teste}}
 <div *ngFor="let universe of universes">
   <input type="radio"  name="universe" id="universe_{{universe.id}}"/><label for="universe_{{universe.id}}">{{universe.description}}</label>
 </div>
+
+<p *ngFor="let x of newHeroPowers">{{x}}</p>
