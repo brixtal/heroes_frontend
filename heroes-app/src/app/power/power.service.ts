@@ -18,8 +18,8 @@ export class PowerService {
           'Content-Type':  'application/json'
       })};
     
-    getAllPowers(): Observable<Power> {
-        return this.http.get<Power>(this.apiURL);
+    getAllPowers(): Observable<Power[]> {
+        return this.http.get<Power[]>(this.apiURL);
     }
 
     insertNewPower(power: Power): Observable<any> {

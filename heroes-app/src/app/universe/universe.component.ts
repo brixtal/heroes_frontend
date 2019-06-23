@@ -25,7 +25,6 @@ export class UniverseComponent implements OnInit {
 
   ngOnInit():void {
     this.getUniverses();
-    this.getPowers();
   }
     
 }

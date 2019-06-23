@@ -1,7 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import {Power} from "../Power";
 import {PowerService} from "../Power/power.service";
-import { Hero } from '../hero';
 
 @Component({
   selector: 'app-power',

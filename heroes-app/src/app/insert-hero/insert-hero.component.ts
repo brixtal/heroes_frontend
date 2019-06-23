@@ -4,7 +4,7 @@ import {UniverseService} from "../Universe/universe.service";
 import {HeroesService} from "../Heroes/heroes.service";
 import {PowerService} from "../Power/power.service";
 import { FormControl } from '@angular/forms';
-import { Hero } from '../Hero';
+import { Hero } from '../hero';
 import { Power } from '../Power';
 import { Universe } from '../Universe';
 import * as moment from 'moment';
@@ -18,12 +18,12 @@ export class InsertHeroComponent implements OnInit {
 
   universes: Object;
   newHero : Hero;
-  powers : Object;
+  powers : Power[];
   selectedPower: String;
   newHeroPowers: String[];
   newHeroUniverse: Universe;
   public tempPower: Power;
-  fixedListPowers: Object[];
+  fixedListPowers: Power[];
   listPowers: Power[];
   selectedId: Number;
 
@@ -95,7 +95,7 @@ getPowers() {
   this.powerService.getAllPowers().subscribe(
     data => {
       this.powers = data;
-      this.fixedListPowers = (data).slice();
+      this.fixedListPowers = data.slice();
     }
 );
 }
