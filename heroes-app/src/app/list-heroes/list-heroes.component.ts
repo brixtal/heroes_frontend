@@ -36,6 +36,14 @@ export class ListHeroesComponent implements OnInit {
     return powerString;
   }
 
+  deleteHero(hero:Hero) {
+    if(confirm("Are you sure to delete hero "+hero.name)){
+      this.heroService.deleteHero(hero).subscribe(
+        data => {
+          this.getHeroes();
+        }
+      )
+    }
   }
 
   ngOnInit() {
