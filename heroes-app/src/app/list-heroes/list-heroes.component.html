@@ -1,4 +1,6 @@
 <div id="container">
+  
+  <div *ngIf = "listHeroes">
   <h2>List of Heroes</h2>
   <table>
     <thead>
@@ -24,4 +26,10 @@
 
 
   </table>
+</div>
+<div *ngIf = "!listHeroes">
+  <h1>Welcome!</h1>
+  <h2>There is no hero registred.</h2>
+  <h3><a [routerLink]="['/insert']">Insert a new hero now!</a></h3>
+</div>
 </div>
