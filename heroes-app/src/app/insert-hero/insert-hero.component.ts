@@ -7,6 +7,7 @@ import { FormControl } from '@angular/forms';
 import { Hero } from '../Hero';
 import { Power } from '../Power';
 import { Universe } from '../Universe';
+import * as moment from 'moment';
 
 @Component({
   selector: 'app-insert-hero',
@@ -49,7 +50,9 @@ export class InsertHeroComponent implements OnInit {
 
     this.newHero.powerList = this.listPowers;
     this.newHero.universe = this.newHeroUniverse;
-    this.newHero.created_at = new Date();
+    let now = new Date();
+    this.newHero.createdAt = moment(now).format("DD/MM/YYYY HH:mm");
+
     this.newHero.active = true;
 
     if(this.newHero.powerList.length == 0){

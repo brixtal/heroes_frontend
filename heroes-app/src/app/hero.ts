@@ -7,6 +7,6 @@ export class Hero {
     name: string;
     universe: Universe;
     powerList: Power[];
-    created_at: Date;
+    createdAt: String;
     active: Boolean;
   }
