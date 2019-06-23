@@ -1,27 +1,25 @@
-<ul>
-  <li>List Heroes</li>
-  <li>Insert Heroes</li>
-</ul>
+<div id="container">
+  <h2>List of Heroes</h2>
+  <table>
+    <thead>
+      <th>Name</th>
+      <th>Power</th>
+      <th>Universe</th>
+      <th>Created at</th>
+    </thead>
+    <tbody>
+      <tr *ngFor="let hero of listHeroes">
+        <td>{{hero.name}}</td>
+        <td>
+          <span>{{getPower(hero.powerList)}} </span>
+        </td>
+        <td>{{hero.universe.description}}</td>
+        <td>{{hero.created_at}}</td>
+      </tr>
 
-<table>
-  <thead>
-    <th>Name</th>
-    <th>Power</th>
-    <th>Universe</th>
-    <th>Created at</th>
-  </thead>
-  <tbody>
-    <tr *ngFor="let hero of listHeroes">
-      <td>{{hero.name}}</td>
-      <td>
-        <span>{{hero.power}}, </span>
-      </td>
-      <td>{{hero.universe.description}}</td>
-      <td>{{hero.created_at}}</td>
-    </tr>
-
-  </tbody>
+    </tbody>
 
 
 
-</table>
+  </table>
+</div>
