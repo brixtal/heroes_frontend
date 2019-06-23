@@ -15,6 +15,7 @@ import { PowerComponent } from './power/power.component';
 import { UniverseComponent } from './universe/universe.component';
 import { ListHeroesComponent } from './list-heroes/list-heroes.component';
 import { InsertHeroComponent } from './insert-hero/insert-hero.component';
+import { AppRoutingModule } from './/app-routing.module';
 
 
 @NgModule({
@@ -30,7 +31,8 @@ import { InsertHeroComponent } from './insert-hero/insert-hero.component';
     BrowserModule,
     FormsModule,
     HttpClientModule,
-    ReactiveFormsModule
+    ReactiveFormsModule,
+    AppRoutingModule
   ],
   providers: [PowerService, UniverseService, HeroesService ],
   bootstrap: [AppComponent]
