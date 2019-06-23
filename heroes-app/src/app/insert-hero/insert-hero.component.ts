@@ -4,6 +4,7 @@ import {PowerService} from "../Power/power.service";
 import { FormControl } from '@angular/forms';
 import { Hero } from '../hero';
 import { Power } from '../power';
+import { Universe } from '../Universe';
 
 @Component({
   selector: 'app-insert-hero',
@@ -17,6 +18,11 @@ export class InsertHeroComponent implements OnInit {
   powers : Object;
   selectedPower: String;
   newHeroPowers: String[];
+  newHeroUniverse: Universe;
+  tempPower: Power;
+  fixedListPowers: Object;
+
+
   constructor(private universeService: UniverseService, private powerService : PowerService) { 
 
     let hero = {
@@ -35,12 +41,58 @@ export class InsertHeroComponent implements OnInit {
   );
 }
 
+  submit() {
+    console.log("Name: ", this.newHero.name);
+    console.log("Power: ", this.newHeroPowers);
+    console.log("Universe: ", this.newHeroUniverse);
 
+    let powers = this.findIdPowers(this.newHeroPowers);
+
+    console.log(powers);
+
+  }
+
+  findIdPowers(listStringPowers: String[])  {
+    
+    let listPowers = [];
+    let findPower = false;
+    console.log
+    listStringPowers.forEach(e => {
+
+      for( var i = 0; i < this.fixedListPowers.length; i++){ 
+        console.log(this.fixedListPowers[i].description," ",e)
+        if ( this.fixedListPowers[i].description == e) {
+          console.log("entrei")
+          listPowers.push({
+            "id": this.fixedListPowers[i].id
+          });
+          findPower = true;
+          break;
+        }
+     }
+     if(!findPower == false) {
+       //this.tempPower.description = e;
+     // let newPower = this.powerService.insertNewPower(this.tempPower);
+     }
+      
+    });
+
+
+    return listPowers;
+  }
+
+  onSelectedUniversed(universe:Universe) {
+
+    this.newHeroUniverse = universe;
+    console.log(this.newHeroUniverse.description);
+
+  }
 getPowers() {
 
   this.powerService.getAllPowers().subscribe(
     data => {
       this.powers = data;
+      this.fixedListPowers = data.slice();
     }
 );
 }

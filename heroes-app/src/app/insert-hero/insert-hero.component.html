@@ -14,7 +14,9 @@
 </datalist>
 {{teste}}
 <div *ngFor="let universe of universes">
-  <input type="radio"  name="universe" id="universe_{{universe.id}}"/><label for="universe_{{universe.id}}">{{universe.description}}</label>
+  <img src ="" width="50px" height="50px" (click)="onSelectedUniversed(universe)">
 </div>
 
 <p *ngFor="let x of newHeroPowers">{{x}}</p>
+
+<input type="button" value="Submit" (click)="submit()"/>
