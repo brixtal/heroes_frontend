@@ -23,11 +23,12 @@ export class InsertHeroComponent implements OnInit {
   public tempPower: Power;
   fixedListPowers: Object[];
   listPowers: Power[];
+  selectedId: Number;
 
 
   constructor(private universeService: UniverseService, private powerService : PowerService, 
         private heroesService: HeroesService) { 
-
+    this.selectedId = 0;
     this.selectedPower = "";
     this.newHeroPowers = [];
   }
@@ -80,6 +81,7 @@ export class InsertHeroComponent implements OnInit {
   onSelectedUniversed(universe:Universe) {
 
     this.newHeroUniverse = universe;
+    this.selectedId = universe.id;
     console.log(this.newHeroUniverse.description);
 
   }
@@ -88,7 +90,7 @@ getPowers() {
   this.powerService.getAllPowers().subscribe(
     data => {
       this.powers = data;
-      this.fixedListPowers = (<Object[]> data).slice();
+      this.fixedListPowers = (data).slice();
     }
 );
 }

@@ -6,6 +6,7 @@
     background-color: #ecf2f7;
     margin:0px;
     width: 100%;
+    height: 80vh;
 }
 
 #logo {
@@ -56,7 +57,7 @@ input[type="text"], input{
     font-size: 16px;
     
     height: 20px;
-    width: 200px;
+    width: 60ch;
 }
 
 label {
@@ -70,9 +71,48 @@ label {
     right: 25px;
     bottom: 25px;
     width: 100px;
+    height: 50px;
+    background-color: #012340;
+    color: #FFFFFF;
+    font-weight: bold;
     cursor: pointer;
+    font-family: Roboto,RobotoDraft,Helvetica,Arial,sans-serif;
 }
 
 .univeseIMG {
     height: 100px;
+}
+
+.inputHero {
+    padding-top: 25px;
+    padding-left: 25px;
+}
+
+.universes-div {
+    display: flex;
+    padding-left: 25px;
+    padding-top:25px;
+}
+
+.universe-img{
+    width: 150px;
+    float: left;   
+}
+
+#label_universe{
+    padding-left: 25px;
+}
+
+.selected {
+    border: solid #012340 3px;
+}
+
+#selectedPowers {
+    font-size: 16px;
+    font-family: Roboto,RobotoDraft,Helvetica,Arial,sans-serif;
+    font-weight: bold;
+    padding-inline-start: 25px !important;
+    padding-top: 0px !important;
+    margin: 0px !important;
+    margin-bottom: 25px !important;
 }
