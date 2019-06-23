@@ -6,6 +6,7 @@ export class Hero {
     id: number;
     name: string;
     universe: Universe;
-    power: Power[];
-    created_at: Date
+    powerList: Power[];
+    created_at: Date;
+    active: Boolean;
   }

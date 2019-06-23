@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import {UniverseService} from "../Universe/universe.service";
+import {HeroesService} from "../Heroes/heroes.service";
 import {PowerService} from "../Power/power.service";
 import { FormControl } from '@angular/forms';
 import { Hero } from '../Hero';
@@ -14,21 +15,19 @@ import { Universe } from '../Universe';
 export class InsertHeroComponent implements OnInit {
 
   universes: Object;
-  newHero : Object;
+  newHero : Hero;
   powers : Object;
   selectedPower: String;
   newHeroPowers: String[];
   newHeroUniverse: Universe;
   public tempPower: Power;
   fixedListPowers: Object;
+  listPowers: Power[];
 
 
-  constructor(private universeService: UniverseService, private powerService : PowerService) { 
+  constructor(private universeService: UniverseService, private powerService : PowerService, 
+        private heroesService: HeroesService) { 
 
-    let hero = {
-      "name" : ""
-    }
-    this.newHero = hero;
     this.selectedPower = "";
     this.newHeroPowers = [];
   }
@@ -46,46 +45,27 @@ export class InsertHeroComponent implements OnInit {
     console.log("Power: ", this.newHeroPowers);
     console.log("Universe: ", this.newHeroUniverse);
 
-    let powers = this.findIdPowers(this.newHeroPowers);
+    this.newHero.powerList = this.listPowers;
+    this.newHero.universe = this.newHeroUniverse;
+    this.newHero.created_at = new Date();
+    this.newHero.active = true;
 
-    console.log(powers);
+    console.log(this.newHero);
 
+    // this.heroesService.insertNewHero(this.newHero).subscribe(
+    //   data => {
+    //     console.log(data);
+    //   }
+    // )
   }
 
   findIdPowers(listStringPowers: String[])  {
     
     let listPowers = [];
     let findPower = false;
-    console.log
     listStringPowers.forEach(e => {
-      findPower = false;
-      for( var i = 0; i < this.fixedListPowers.length; i++){ 
-        console.log(this.fixedListPowers[i].description," ",e)
-        if ( this.fixedListPowers[i].description == e) {
-          console.log("entrei")
-          listPowers.push({
-            "id": this.fixedListPowers[i].id
-          });
-          findPower = true;
-          break;
-        }
-     }
-     if(findPower == false) {
-       console.log("adicionando...");
-       this.tempPower.description = e;
-       this.powerService.insertNewPower(this.tempPower).subscribe(
-        data => {
-          listPowers.push({
-            "id": data.id
-          });
-        }
-    );;
-     }
       
     });
-
-
-    return listPowers;
   }
 
   onSelectedUniversed(universe:Universe) {
@@ -108,6 +88,30 @@ onSelectedPower(selectedPower) {
   this.newHeroPowers[this.newHeroPowers.length] = selectedPower;
   this.selectedPower = "";
 
+
+  let findPower = false;
+  for( var i = 0; i < this.fixedListPowers.length; i++){ 
+    console.log(this.fixedListPowers[i].description," ",selectedPower)
+    if ( this.fixedListPowers[i].description == selectedPower) {
+      this.listPowers.push({
+        "id": this.fixedListPowers[i].id,
+        "description": selectedPower
+      });
+      findPower = true;
+      break;
+      }
+    }
+    if(findPower == false) {
+      this.tempPower.description = selectedPower;
+      this.powerService.insertNewPower(this.tempPower).subscribe(
+      data => {
+        this.listPowers.push(
+          data
+        );
+      }
+    );
+     }
+
   for( var i = 0; i < this.powers.length; i++){ 
     if ( this.powers[i].description == selectedPower) {
       this.powers.splice(i, 1); 
@@ -115,13 +119,14 @@ onSelectedPower(selectedPower) {
  }
 }
 
-
   queryField: FormControl = new FormControl();
 
   ngOnInit() {
     this.tempPower = new Power();
+    this.listPowers = [];
     this.getUniverses();
     this.getPowers();
+    this.newHero = new Hero();
   }
 
 }
