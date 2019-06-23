@@ -21,6 +21,10 @@ export class HeroesService {
         return this.http.get<Hero>(this.apiURL);
     }
 
+    getAllHeroesOrdered(value: String, type: String): Observable<Hero> {
+        return this.http.get<Hero>(this.apiURL + "/" + value + "/" + "ASC");
+    }
+
     insertNewHero(hero: Hero): Observable<Hero> {
         return this.http.post<Hero>(this.apiURL, hero, this.httpOptions);
     }

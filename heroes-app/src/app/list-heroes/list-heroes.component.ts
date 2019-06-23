@@ -26,6 +26,15 @@ export class ListHeroesComponent implements OnInit {
   );
   }
 
+  getOrderedHeroes(value: String, type: String) {
+
+    this.heroService.getAllHeroesOrdered(value, type).subscribe(
+      data => {
+        this.listHeroes = data;
+      }
+  );
+  }
+
   getPower(powers:Power[]): String{
     let firstPower = true;
     let powerString = "";

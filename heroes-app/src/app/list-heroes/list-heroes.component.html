@@ -2,10 +2,10 @@
   <h2>List of Heroes</h2>
   <table>
     <thead>
-      <th>Name</th>
+      <th (click)="getOrderedHeroes('name', 'ASC')">Name</th>
       <th>Power</th>
-      <th>Universe</th>
-      <th>Created at</th>
+      <th (click)="getOrderedHeroes('universe.description', 'ASC')">Universe</th>
+      <th (click)="getOrderedHeroes('createdAt', 'ASC')">Created at</th>
       <th></th>
     </thead>
     <tbody>
