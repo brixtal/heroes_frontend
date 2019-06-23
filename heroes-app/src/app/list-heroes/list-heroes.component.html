@@ -1,0 +1,27 @@
+<ul>
+  <li>List Heroes</li>
+  <li>Insert Heroes</li>
+</ul>
+
+<table>
+  <thead>
+    <th>Name</th>
+    <th>Power</th>
+    <th>Universe</th>
+    <th>Created at</th>
+  </thead>
+  <tbody>
+    <tr *ngFor="let hero of listHeroes">
+      <td>{{hero.name}}</td>
+      <td>
+        <span>{{hero.power}}, </span>
+      </td>
+      <td>{{hero.universe.description}}</td>
+      <td>{{hero.created_at}}</td>
+    </tr>
+
+  </tbody>
+
+
+
+</table>

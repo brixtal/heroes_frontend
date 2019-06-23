@@ -11,6 +11,7 @@ import { AppComponent } from './app.component';
 import { HeroesComponent } from './heroes/heroes.component';
 import { PowerComponent } from './power/power.component';
 import { UniverseComponent } from './universe/universe.component';
+import { ListHeroesComponent } from './list-heroes/list-heroes.component';
 
 
 @NgModule({
@@ -18,7 +19,8 @@ import { UniverseComponent } from './universe/universe.component';
     AppComponent,
     HeroesComponent,
     PowerComponent,
-    UniverseComponent
+    UniverseComponent,
+    ListHeroesComponent
   ],
   imports: [
     BrowserModule,
