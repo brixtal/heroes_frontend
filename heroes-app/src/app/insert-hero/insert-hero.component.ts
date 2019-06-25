@@ -4,7 +4,7 @@ import {UniverseService} from "../Universe/universe.service";
 import {HeroesService} from "../Heroes/heroes.service";
 import {PowerService} from "../Power/power.service";
 import { FormControl } from '@angular/forms';
-import { Hero } from '../hero';
+import { Hero } from '../Hero';
 import { Power } from '../Power';
 import { Universe } from '../Universe';
 import * as moment from 'moment';
